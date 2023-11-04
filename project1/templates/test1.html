@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+    <!-- Your head section content here -->
+    <style>
+        /* Style for the dropdown menu */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the New Page</h1>
+        
+        <!-- Department Dropdown -->
+        <div class="dropdown">
+            <button class="btn btn-secondary">Departments</button>
+            <div class="dropdown-content">
+                {% for department_name, department_link in department_links %}
+                    <a href="{{ department_link }}" target="_blank">{{ department_name }}</a>
+                {% endfor %}
+            </div>
+        </div>
+        
+        <!-- Other content for the "npage" goes here -->
+    </div>
+
+
+
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="departmentDropdown" data-toggle="dropdown">
+            Departments
+        </button>
+        <div class="dropdown-menu" aria-labelledby="departmentDropdown">
+            {% for department_name, department_link in department_links %}
+                <a class="dropdown-item" href="{{ department_link }}" target="_blank">{{ department_name }}</a>
+            {% endfor %}
+        </div>
+      </div>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+{% extends 't10.html' %}
+
+{% block body %}
+   
+
+<div class="text-left">
+    <h2 style="font-size: 24px; color: #333;">Welcome, {{ user.username }}</h2>
+    <p style="font-size: 18px; color: #666;">Click below to complete the form:</p>
+    
+    <a class="btn btn-primary btn-lg" href="{% url 'app1:npage' %}" style="text-decoration: none;">
+        <u style="color: #fff;">Form</u>
+    </a>
+</div>
+
+{% endblock %}

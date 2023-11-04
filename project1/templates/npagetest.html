@@ -1,0 +1,94 @@
+{% extends 't10.html' %}
+
+{% block body %}
+<div class="container mt-5">
+    <div class="col-auto offset-md-2">
+        <h1>Your Page</h1>
+        <button type="button" class="btn btn-primary" id="showFormButton">Show Form</button>
+        <form method="post" id="myForm" style="display: none;">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_name">Name:</label><br>
+                {{ form.name }}
+            </div>
+            <div class="form-group">
+                <label for="id_dob">Date of Birth:</label><br>
+                {{ form.dob }}
+            </div>
+            <div class="form-group">
+                <label for="id_age">Age:</label><br>
+                {{ form.age }}
+            </div>
+            <div class="form-group">
+                <label for="id_gender">Gender:</label><br>
+                {{ form.gender }}
+            </div>
+            <div class="form-group">
+                <label for="id_phone_number">Phone Number:</label><br>
+                {{ form.phone_number }}
+            </div>
+            <div class="form-group">
+                <label for="id_phone_number">Phone Number:</label><br>
+                {{ form.phone_number }}
+            </div>
+            <div class="form-group">
+                <label for="id_mail_id">Email:</label><br>
+                {{ form.mail_id }}
+            </div>
+            <div class="form-group">
+                <label for="id_address">Address:</label><br>
+                {{ form.address }}
+            </div>
+            <div class="form-group">
+                <label for="id_department">Department:</label><br>
+                {{ form.department }}
+            </div>
+            <div class="form-group">
+                <label for="id_course">Course:</label><br>
+                {{ form.course }}
+            </div>
+            <div class="form-group">
+                <label for="id_purpose">Purpose:</label><br>
+                {{ form.purpose }}
+            </div>
+            <div class="form-group">
+                <label for="id_dob">Date of Birth:</label><br>
+                {{ form.dob }}
+            </div>
+            
+            
+            
+            <!-- Add other form fields here -->
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+    </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    var showFormButton = document.getElementById("showFormButton");
+
+    showFormButton.addEventListener("click", function () {
+        // Disable the button to make it unclickable
+        showFormButton.disabled = true;
+
+        // Show the form
+        var form = document.getElementById("myForm");
+        form.style.display = "block";
+    });
+});
+</script>
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>
+            <h1>{{ message }}</h1>
+            <br>
+            <a href="{% url 'app1:home' %}">click to go home</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endif %}
+</div>
+{% endblock %}
